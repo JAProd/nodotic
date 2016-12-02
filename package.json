@@ -1,0 +1,32 @@
+{
+  "name": "nodotic",
+  "version": "1.0.0",
+  "description": "domotic server",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/briardalexis/nodotic.git"
+  },
+  "keywords": [
+    "domotic",
+    "api",
+    "rest",
+    "express"
+  ],
+  "author": "Alexis BRIARD",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/briardalexis/nodotic/issues"
+  },
+  "homepage": "https://github.com/briardalexis/nodotic#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "mongoose": "4.7.1",
+    "morgan": "1.7.0",
+    "body-parser": "1.15.2",
+    "method-override": "2.3.7"
+  }
+}
