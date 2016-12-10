@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/briardalexis/nodotic.git"
+    "url": "git+https://github.com/JAProd/nodotic.git"
   },
   "keywords": [
     "domotic",
@@ -20,9 +20,9 @@
   "author": "Alexis BRIARD",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/briardalexis/nodotic/issues"
+    "url": "https://github.com/JAProd/nodotic/issues"
   },
-  "homepage": "https://github.com/briardalexis/nodotic#readme",
+  "homepage": "https://github.com/JAProd/nodotic#readme",
   "dependencies": {
     "body-parser": "1.15.2",
     "crypto": "0.0.3",
