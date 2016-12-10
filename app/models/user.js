@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var crypto = require('crypto');
 var jwt = require('jsonwebtoken');
-var securityConfig = require('../../security');
+var securityConfig = require('../../config/security');
 
 var userSchema = new mongoose.Schema({
   email: {

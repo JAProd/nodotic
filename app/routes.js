@@ -1,7 +1,13 @@
-var sensor = require('./models/sensor');
+var securityConfig = require('../config/security');
+var jwt = require('express-jwt');
+var auth = jwt({
+  secret: securityConfig.passwordSalt,
+  userProperty: 'payload'
+});
 
 module.exports = function(app) {
-    app.get('/api/sensors', function(req, res) {
+    app.get('/api/sensors', auth, function(req, res) {
+        return res.send('bordel');
     });
     app.post('/api/sensors', function(req, res) {
     });
