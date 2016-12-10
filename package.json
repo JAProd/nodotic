@@ -4,7 +4,8 @@
   "description": "domotic server",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -23,10 +24,17 @@
   },
   "homepage": "https://github.com/briardalexis/nodotic#readme",
   "dependencies": {
+    "body-parser": "1.15.2",
+    "crypto": "0.0.3",
     "express": "^4.14.0",
+    "jsonwebtoken": "^7.2.1",
+    "method-override": "2.3.7",
     "mongoose": "4.7.1",
     "morgan": "1.7.0",
-    "body-parser": "1.15.2",
-    "method-override": "2.3.7"
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }
