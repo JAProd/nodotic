@@ -2,7 +2,7 @@
 var express  = require('express');
 var app      = express();                               // create our app w/ express
 var mongoose = require('mongoose');                     // mongoose for mongodb
-var port     = process.env.PORT || 8080;                // set the port (3000) test du commit depuis macif prout
+var port     = process.env.PORT || 8080;                // set the port (3000) test du commit depuis macif
 var database = require('./config/database');            // load the database config
 var morgan = require('morgan');                     // log requests to the console (express4)
 var bodyParser = require('body-parser');                // pull information from HTML POST (express4)
