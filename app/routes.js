@@ -5,7 +5,15 @@ var auth = jwt({
   userProperty: 'payload'
 });
 
+var authenticationController = require('./controllers/authentication');
+
 module.exports = function(app) {
+
+    //authentication
+    app.post('/register', authenticationController.register);
+    app.post('/login', authenticationController.login);
+
+    //sensors
     app.get('/api/sensors', auth, function(req, res) {
         return res.send('bordel');
     });
@@ -16,7 +24,7 @@ module.exports = function(app) {
 
     // application -------------------------------------------------------------
     app.get('*', function(req, res) {
-        res.sendFile('./public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
+        res.sendFile('../public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
     });
 
 };
