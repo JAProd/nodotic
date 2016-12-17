@@ -38,3 +38,5 @@ userSchema.methods.generateJwt = function() {
     exp: parseInt(expiry.getTime() / 1000),
   }, securityConfig.passwordSalt);
 };
+
+module.exports = mongoose.model('User', userSchema);
