@@ -3,7 +3,7 @@ var philipsLightController = require('../controllers/philipsLight');
 
 var CronJob = require('cron').CronJob;
 var job = new CronJob({
-  cronTime: '* */5 * * * *',
+  cronTime: '*/5 * * * * *',
   onTick: function() {
       philipsSensorController.getPhilipsSensors();
       philipsLightController.getPhilipsLights();

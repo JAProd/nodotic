@@ -12,8 +12,13 @@ var authenticationController = require('./controllers/authentication');
 
 module.exports = function(app) {
     app.get('/api/lights', lightController.getLights);
+    app.get('/api/lights/active', lightController.getActiveLights);
     app.get('/api/lights/:light_id', lightController.getLightsById);
+    app.post('/api/lights/active/:light_id', lightController.activeLightById);
+    app.post('/api/lights/disable/:light_id', lightController.disableLightById);
+    app.post('/api/lights/changecolor/:light_id', lightController.changePhilipsColorLightById);
     app.get('/api/sensors', sensorController.getSensors);
+    app.get('/api/sensor/temperature', sensorController.getSensorTemperatureById);
     //authentication
     app.post('/register', authenticationController.register);
     app.post('/login', authenticationController.login);
