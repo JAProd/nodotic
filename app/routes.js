@@ -1,14 +1,17 @@
 var securityConfig = require('../config/security');
+var cron = require('./util/cron');
 var jwt = require('express-jwt');
 var auth = jwt({
   secret: securityConfig.passwordSalt,
   userProperty: 'payload'
 });
+var sensorController = require('./controllers/sensor');
+var lightController = require('./controllers/light');
 
 module.exports = function(app) {
-    app.get('/api/sensors', auth, function(req, res) {
-        return res.send('bordel');
-    });
+    app.get('/api/lights', lightController.getLights);
+    app.get('/api/lights/:light_id', lightController.getLightsById);
+    app.get('/api/sensors', sensorController.getSensors);
     app.post('/api/sensors', function(req, res) {
     });
     app.delete('/api/sensors/:sensor_id', function(req, res) {
