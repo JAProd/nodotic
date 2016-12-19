@@ -7,11 +7,13 @@ var userSchema = new mongoose.Schema({
   email: {
     type: String,
     unique: true,
-    required: true
+    required: true,
+    match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
   },
   name: {
     type: String,
-    required: true
+    required: true,
+    minlength : 2
   },
   hash: String,
   salt: String

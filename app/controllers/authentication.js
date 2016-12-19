@@ -1,23 +1,29 @@
 var mongoose = require('mongoose'); 
 var User = mongoose.model('User');
 var passport = require('passport');
+const UserService = require('../services/user');
 
 module.exports.register = function(req, res) {
-  var user = new User();
-
-  user.name = req.body.name;
-  user.email = req.body.email;
-
-  user.setPassword(req.body.password);
-
-  user.save(function(err) {
+  //var user = new User();
+  var userService = new UserService();
+  var user = userService.create(req.body);
+  if (user instanceof Error) {
+    res.status(400);
+    res.json({'error' : user.message})
+  } else {
+    res.status(201);
+    res.json(user);
+  }
+  
+  /*user.save(function(err) {
+    console.log(err);
     var token;
     token = user.generateJwt();
     res.status(200);
     res.json({
       "token" : token
     });
-  });
+  });*/
 };
 
 module.exports.login = function(req, res) {
