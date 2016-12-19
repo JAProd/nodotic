@@ -1,4 +1,5 @@
 var Sensor = require('../models/Sensor');
+var philipsSensorController = require('./philipsSensor');
 
 /**
  * GET /login
@@ -14,3 +15,7 @@ exports.getSensors = (req, res) => {
         }
     });
 };
+
+exports.getSensorTemperatureById = (req, res) => {
+    philipsSensorController.getSensorTemperature(req, res);
+}

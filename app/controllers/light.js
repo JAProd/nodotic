@@ -1,4 +1,5 @@
 var Light = require('../models/Light');
+var philipsLightController = require('./philipsLight');
 
 /**
  * GET /login
@@ -15,14 +16,13 @@ exports.getLights = (req, res) => {
 };
 
 /**
- * GET /lights/name
+ * GET /lights/id
  * Login page.
  */
 exports.getLightsById = (req, res) => {
-    console.log(req);
-    var id = req.params.id;
-    console.log(id);
-    Light.find({}, function(err, docs) {
+    console.log(req.params);
+    var id = req.params.light_id;
+    Light.find({'id':id}, function(err, docs) {
         if (!err){ 
             res.send(docs);
         } else {
@@ -31,3 +31,29 @@ exports.getLightsById = (req, res) => {
     });
 };
 
+/**
+ * GET /lights/active
+ */
+exports.getActiveLights = (req, res) => {
+    philipsLightController.getActivePhilipsLights(req, res);
+};
+
+exports.activeLightById = (req, res) => {
+    var id = req.params.light_id;
+    philipsLightController.activePhilipsLightById(req, res, id);
+}
+
+exports.disableLightById = (req, res) => {
+    var id = req.params.light_id;
+    philipsLightController.disablePhilipsLightById(req, res, id);
+}
+
+exports.changePhilipsColorLightById = (req, res) => {
+    var id = req.params.light_id;
+    var r = req.query.r;
+    var g = req.query.g;
+    var b = req.query.b;
+
+    philipsLightController.changePhilipsColorLightById(req, res, id, r, g, b);
+    
+}

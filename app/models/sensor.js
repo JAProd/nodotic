@@ -28,6 +28,7 @@ var stateSensor = mongoose.Schema({
 });
 
 module.exports = mongoose.model('Sensor', {
+    id: String,
     name : String,
     type : String,
     modelid: String,

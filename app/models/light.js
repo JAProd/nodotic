@@ -13,7 +13,8 @@ var stateLight = mongoose.Schema({
     reachable: Boolean
 });
 
-module.exports = mongoose.model('Light', {
+var lightSchema = mongoose.Schema({
+    id: String,
     type : String,
     name : String,
     modelid: String,
@@ -22,5 +23,9 @@ module.exports = mongoose.model('Light', {
     swversion : String,
     swconfigid: String,
     productid: String,
+    date: Date,
+    old: Boolean,
     state: stateLight
 });
+
+module.exports = mongoose.model('Light', lightSchema);
