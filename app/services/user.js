@@ -1,6 +1,6 @@
 "use strict";
 const AbstractService = require('./abstract');
-var mongoose = require('mongoose'); 
+var mongoose = require('mongoose');
 var User = mongoose.model('User');
 class UserService extends AbstractService {
 
@@ -8,32 +8,23 @@ class UserService extends AbstractService {
      * creates a user and persists it into the database
      * 
      * @this {UserService}
-     * @returns {User} the persisted user
+     * @param {Object} userInfos informations to build the user from
+     * @param {String} userInfos.name user's name
+     * @param {String} userInfos.email user's email
+     * @param {String} userInfos.password user's password
+     * @returns {Promise} the persisted user
      */
     create(userInfos) {
-        //check if the email is already taken
-        var userExists = User.count({'email' : userInfos.name}, function(err, nb) {
-            return !!nb;
-        });
-        if (userExists) {
-            return Error('email already taken');
-        }
-
-        //fill the user object
         var user = new User();
         user.name = userInfos.name;
         user.email = userInfos.email;
         user.password = userInfos.password;
+        return user.save();
+    }
 
-        //persist the user
-        var errors = user.save(function(err) {
-            return err;
-        });
-        if (errors) {
-            return new Error('Invalid data given');
-        }
-        return user;
+    findById(userId) {
+        return User.findById(userId).exec();
     }
 }
 
-module.exports = UserService;
+module.exports = new UserService();
