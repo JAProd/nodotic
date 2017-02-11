@@ -17,7 +17,7 @@ mongoose.Promise = require('bluebird');                         // set Promise p
 
 app.use(bodyParser.urlencoded({ 'extended': 'true' }));            // parse application/x-www-form-urlencoded
 app.use(express.static(__dirname + '/public'));                 // set the static files location /public/img will be /img for users
-if (process.env.NODE_ENV !== 'test') {
+if (process.env.NODE_ENV == 'development') {
     app.use(morgan('dev'));                                         // log every request to the console
 }
 app.use(bodyParser.json());                                     // parse application/json

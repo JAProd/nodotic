@@ -31,6 +31,7 @@ var userSchema = new mongoose.Schema({
       transform: function (doc, ret) {
         delete ret.passwordHash;
         delete ret.salt;
+        delete ret.__v;
       }
     }
   });
@@ -65,6 +66,7 @@ userSchema.methods.validPassword = function (password) {
 
 userSchema.methods.generateJwt = function () {
   var expiry = new Date();
+  //TODO améliorer la gestion des tokens, passer en configuration la durée de vie par exemple
   expiry.setDate(expiry.getDate() + 7);
 
   return jwt.sign({

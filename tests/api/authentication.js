@@ -1,5 +1,4 @@
 "use strict";
-let mongoose = require("mongoose");
 let User = require('../../app/models/user');
 
 //Require the dev-dependencies
