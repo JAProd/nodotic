@@ -10,8 +10,15 @@ var bodyParser = require('body-parser');                // pull information from
 var methodOverride = require('method-override');        // simulate DELETE and PUT (express4)
 var passport = require('passport');
 
+//init all mongoose models
+const fs = require('fs');
+var models_path = __dirname + '/app/models'
+fs.readdirSync(models_path).forEach(function (file) {
+  require(models_path+'/'+file)
+})
+
 // configuration ===============================================================
-console.log("starting app in " + process.env.NODE_ENV + ' mode.');
+console.log("Starting app in " + process.env.NODE_ENV + ' mode.');
 mongoose.connect(databaseConfig.url);                                 // connect to mongoDB database
 mongoose.Promise = require('bluebird');                         // set Promise provider to bluebird
 
