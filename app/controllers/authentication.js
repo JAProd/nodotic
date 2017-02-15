@@ -1,6 +1,6 @@
 "use strict";
 var passport = require('passport');
-const userService = require('../services/user');
+const userService = requireService('user');
 
 module.exports.register = function (req, res) {
   userService.create(req.body).then(user => {

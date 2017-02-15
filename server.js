@@ -1,4 +1,7 @@
 "use strict";
+// require wrapper ==============================================================
+require('./app/require-wrapper');
+
 // set up ======================================================================
 var express = require('express');
 var app = express();                               // create our app w/ express
@@ -10,7 +13,7 @@ var bodyParser = require('body-parser');                // pull information from
 var methodOverride = require('method-override');        // simulate DELETE and PUT (express4)
 var passport = require('passport');
 
-//init all mongoose models
+// init all mongoose models ====================================================
 const fs = require('fs');
 var models_path = __dirname + '/app/models'
 fs.readdirSync(models_path).forEach(function (file) {

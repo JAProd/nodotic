@@ -1,5 +1,5 @@
 "use strict";
-const AbstractService = require('./abstract');
+const AbstractService = requireService('abstract');
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 class UserService extends AbstractService {

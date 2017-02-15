@@ -20,5 +20,11 @@
         "no-unused-vars": "warn",
         "constructor-super": "warn",
         "valid-typeof": "warn"
+    },
+    "globals": {
+        "requireController" : false,
+        "requireService" : false,
+        "requireModel" : false,
+        "requireConfig" : false
     }
 }

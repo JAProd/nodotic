@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var crypto = require('crypto');
 var jwt = require('jsonwebtoken');
 var uniqueValidator = require('mongoose-unique-validator');
-var securityConfig = require('../../config/security.' + process.env.NODE_ENV);
+var securityConfig = requireConfig('security');
 
 var userSchema = new mongoose.Schema({
   email: {

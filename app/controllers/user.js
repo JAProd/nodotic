@@ -1,5 +1,5 @@
 "use strict";
-const UserService = require('../services/user');
+const UserService = requireService('user');
 
 module.exports.getUserById = function (req, res) {
     UserService.findById(req.params.userId).then(user => {

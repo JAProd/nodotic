@@ -1,13 +1,11 @@
-var securityConfig = require('../config/security.' + process.env.NODE_ENV);
-var cron = require('cron');
+var securityConfig = requireConfig('security');
 var jwt = require('express-jwt');
 var auth = jwt({
   secret: securityConfig.passwordSalt,
   userProperty: 'payload'
 });
-var userController = require('./controllers/user');
-
-var authenticationController = require('./controllers/authentication');
+var userController = requireController('user');
+var authenticationController = requireController('authentication');
 
 module.exports = function(app) {
     //authentication
