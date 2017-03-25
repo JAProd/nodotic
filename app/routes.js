@@ -1,3 +1,4 @@
+"use strict";
 var securityConfig = requireConfig('security');
 var jwt = require('express-jwt');
 var auth = jwt({
