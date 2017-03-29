@@ -1,5 +1,5 @@
 "use strict";
-module.exports = function (app) {
+module.exports = function () {
     var redisConfig = requireConfig('redis');
     // init kue
     var kue = require('kue-scheduler');
@@ -7,4 +7,9 @@ module.exports = function (app) {
         redis: redisConfig.url,
         restore: true
     });
+
+    queue.process('unique_every', function(job, done) {
+    console.log('zob');
+    done();
+});
 };

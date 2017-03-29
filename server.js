@@ -37,7 +37,7 @@ require('./app/security/passport');
 app.use(passport.initialize());
 
 // init app ====================================================================
-require('./app/init')(app);
+require('./app/init')();
 
 // routes ======================================================================
 require('./app/routes')(app);
